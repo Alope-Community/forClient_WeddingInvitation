@@ -9,7 +9,7 @@ const RSVP = () => {
         mainTitle="WEEDING PARTY DETAILS"
         subtitle="FROM THE VOWS TO THE CELEBRATION — HERE’S WHERE IT ALL HAPPENS"
       />
-      <div className="min-h-screen font-serif text-center">
+      <div className="font-serif text-center">
         <h2 className="text-xl font-bold border-t border-b py-2 mb-4 tracking-wider">WEDDING TIMELINE</h2>
 
         <div className="flex items-center justify-center">
