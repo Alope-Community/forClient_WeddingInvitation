@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import routes from "./Utils/Route";
+import MenuBar from "./Components/MenuBar";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
               <Route key={index} path={route.path} element={route.element} />
             ))}
           </Routes>
+          <MenuBar />
         </Router>
       </main>
     </>
