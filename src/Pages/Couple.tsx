@@ -15,7 +15,7 @@ const Couple = () => {
       </div>
       <div className="text-center font-serif">
         <h2 className="text-2xl font-bold text-red-700 border-y py-3 border-black">
-          GUGUN <span className="italic text-black">and</span> MILA
+          GUGUN <span className="charm-reguler text-black ">And</span> MILA
         </h2>
       </div>
 
@@ -30,7 +30,7 @@ const Couple = () => {
         </p>
       </div>
 
-      <div className="text-[10px] text-center border-y py-3 border-blackpt-2 font-serif">
+      <div className="text-[10px] text-center border-y py-3 border-black pt-2 font-serif">
         Published by The Eternal Love of Gugun & Mila
       </div>
     </>

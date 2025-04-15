@@ -1,5 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import routes from "./Utils/Route";
+// import Header from "./Components/Header";
+import Couple from "./Pages/Couple";
 
 function App() {
   return (
@@ -11,6 +13,7 @@ function App() {
               <Route key={index} path={route.path} element={route.element} />
             ))}
           </Routes>
+          <Couple />
         </Router>
       </main>
     </>
