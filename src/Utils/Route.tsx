@@ -1,9 +1,10 @@
 import Home from "../Pages/Home";
 import Couple from "../Pages/Couple";
 import { GiLoveHowl, GiLovers } from "react-icons/gi";
-import RSVP from "../Pages/RSVP";
 import { CgMail } from "react-icons/cg";
 import { FaMessage } from "react-icons/fa6";
+import { TbMapShare } from "react-icons/tb";
+import Place from "../Pages/Location";
 
 const routes = [
   {
@@ -19,41 +20,18 @@ const routes = [
     label: "Couple"
   },
   {
+    path: "/location",
+    element: <Place />,
+    icon: <TbMapShare />,
+    label: "Location"
+  },
+  {
     path: "/rsvp",
-    element: <RSVP />,
+    element: <Place />,
     icon: <FaMessage />,
     label: "RSVP"
   },
-  {
-    path: "/rsvp",
-    element: <RSVP />,
-    icon: <GiLoveHowl />,
-    label: "RSVP"
-  },
-  {
-    path: "/rsvp",
-    element: <RSVP />,
-    icon: <GiLoveHowl />,
-    label: "RSVP"
-  },
-  {
-    path: "/rsvp",
-    element: <RSVP />,
-    icon: <GiLoveHowl />,
-    label: "RSVP"
-  },
-  {
-    path: "/rsvp",
-    element: <RSVP />,
-    icon: <GiLoveHowl />,
-    label: "RSVP"
-  },
-  {
-    path: "/rsvp",
-    element: <RSVP />,
-    icon: <GiLoveHowl />,
-    label: "RSVP"
-  },
+  
 ];
 
 export default routes;
