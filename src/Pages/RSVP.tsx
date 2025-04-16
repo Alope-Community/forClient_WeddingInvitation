@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from '../Components/Header'
 import Countdown from '../Components/Coutdown'
+import Location from '../Components/Location'
 
 const RSVP = () => {
   return (
@@ -27,7 +28,12 @@ const RSVP = () => {
 
         <p className="font-semibold mt-4 mb-2">Kuningan Islamic Center</p>
 
-        <div className="w-[90%] max-w-md mx-auto h-48 bg-gray-300 rounded-lg mb-4" />
+        <div className="w-[90%] max-w-md mx-auto h-48 bg-gray-300 rounded-lg mb-4">
+          <Location 
+            width='100%'
+            height='100%'
+          />
+        </div>
 
         <button className="bg-[#8A5529] text-white px-4 py-2 rounded-md text-sm mb-6">Google Maps</button>
 
