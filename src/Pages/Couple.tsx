@@ -1,6 +1,7 @@
 // import React from 'react'
 
 import Header from "../Components/Header";
+import MenuBar from "../Components/MenuBar";
 
 const Couple = () => {
   return (
@@ -36,6 +37,8 @@ const Couple = () => {
       <div className="text-[10px] text-center border-y py-3 border-black pt-2 font-serif">
         Published by The Eternal Love of Gugun & Mila
       </div>
+
+      <MenuBar />
     </>
   );
 };
