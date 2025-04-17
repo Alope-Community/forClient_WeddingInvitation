@@ -2,6 +2,7 @@ import Header from '../Components/Header'
 import Countdown from '../Components/Coutdown'
 import Location from '../Components/Location'
 import { useNavigate } from 'react-router-dom'
+import MenuBar from '../Components/MenuBar'
 
 const Place = () => {
   const navigate = useNavigate();
@@ -49,6 +50,7 @@ const Place = () => {
 
         <Countdown />
       </div>
+      <MenuBar />
     </>
   )
 }
