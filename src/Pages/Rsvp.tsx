@@ -1,8 +1,11 @@
 import React from 'react'
 import Header from '../Components/Header'
 import MenuBar from '../Components/MenuBar'
+// import { getRsvp } from '../Hooks/rsvp'
 
 const Rsvp = () => {
+
+    // const data = getRsvp()
     return (
         <>
             <Header

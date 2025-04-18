@@ -19,7 +19,9 @@ const Header: React.FC<HeaderProps> = ({
       <h1 className="abril-fatface text-lg font-bold mt-2 border-y py-3 border-black">
         {mainTitle}
       </h1>
-      <p className="text-[10px] font-semibold uppercase mt-3">{subtitle}</p>
+      {subtitle && (
+        <p className="text-[10px] font-semibold uppercase mt-3">{subtitle}</p>
+      )}
     </div>
   );
 };
