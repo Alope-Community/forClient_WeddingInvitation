@@ -22,7 +22,7 @@ const GiftInfoCard: React.FC<GiftInfoCardProps> = ({ bank, accountNumber, name }
         <CgCreditCard size={20}/>
       </div>
       <p className="text-sm">No. Rekening</p>
-      <p className="text-2xl font-bold my-2">{accountNumber}</p>
+      <p className="text-xl font-bold my-1">{accountNumber}</p>
       <button
         onClick={handleCopy}
         className="flex items-center gap-2 bg-[#8A5529] text-white px-3 py-1 rounded-md"
