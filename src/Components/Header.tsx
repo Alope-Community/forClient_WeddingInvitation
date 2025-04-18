@@ -5,12 +5,9 @@ interface HeaderProps {
   subtitle: string;
 }
 
-const Header: React.FC<HeaderProps> = ({
-  mainTitle,
-  subtitle,
-}) => {
+const Header: React.FC<HeaderProps> = ({ mainTitle, subtitle }) => {
   return (
-    <div className="text-xs text-center font-serif pb-1">
+    <div className="text-xs text-center p-5 font-serif pb-1">
       <div className="flex justify-between font-medium">
         <span>May, 25 2025</span>
         <span>BREAKING NEWS</span>
