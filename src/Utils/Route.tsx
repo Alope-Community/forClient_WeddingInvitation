@@ -6,7 +6,9 @@ import { FaMessage } from "react-icons/fa6";
 import { TbMapShare } from "react-icons/tb";
 import Place from "../Pages/Location";
 // import Rsvp from "../Pages/Rsvp";
-import Rsvp from "../Pages/RSVP";
+import Rsvp from "../Pages/Rsvp.tsx";
+import { FaGift } from "react-icons/fa";
+import Gift from "../Pages/Gift.tsx";
 
 const routes = [
   {
@@ -34,10 +36,10 @@ const routes = [
     label: "RSVP",
   },
   {
-    path: "/rsvp",
-    element: <Rsvp />,
-    icon: <FaMessage />,
-    label: "RSVP",
+    path: "/gift",
+    element: <Gift />,
+    icon: <FaGift />,
+    label: "Gift",
   },
 ];
 

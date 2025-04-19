@@ -1,7 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import routes from "./Utils/Route";
-import MenuBar from "./Components/MenuBar";
-import Couple from "./Pages/Couple";
 
 function App() {
   return (

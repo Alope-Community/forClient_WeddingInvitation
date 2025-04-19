@@ -16,12 +16,12 @@ const Rsvp = () => {
     { nama: "Nama Tamu", pesan: "happy wedding!" },
   ]);
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (form.nama && form.ucapan) {
       setUcapanList([{ nama: form.nama, pesan: form.ucapan }, ...ucapanList]);
@@ -36,7 +36,7 @@ const Rsvp = () => {
         subtitle="RSVP & LET LOVE KNOW YOU'RE COMING"
       />
 
-      <div className="font-serif text-center pt-5">
+      <div className="font-serif text-center">
         <h2 className="text-xl font-bold mx-5 mt-3 border-y py-3 mb-4 tracking-wider">
           RSVP & GREETING
         </h2>
@@ -107,7 +107,7 @@ const Rsvp = () => {
         </button>
       </form>
 
-      <div className="border-t my-8 max-w-md mx-auto px-4">
+      <div className="border-t mt-8 pb-20 max-w-md mx-auto px-4">
         {ucapanList.map((item, index) => (
           <div key={index} className="bg-orange-200 p-4 my-2 rounded-md">
             <div className="flex items-center space-x-2 font-semibold">
