@@ -1,31 +1,65 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../Components/Header";
+import { getRsvp, postRsvp } from "../Hooks/Rsvp";
 
 const Rsvp = () => {
   const [form, setForm] = useState({
     nama: "",
     alamat: "",
-    kehadiran: "",
+    kehadiran: true,
     ucapan: "",
   });
-
-  const [ucapanList, setUcapanList] = useState([
-    { nama: "Nama Tamu", pesan: "happy wedding!" },
-    { nama: "Nama Tamu", pesan: "happy wedding!" },
-    { nama: "Nama Tamu", pesan: "happy wedding!" },
-  ]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
   };
 
+  const [ucapanList, setUcapanList] = useState<any[]>([]);
+
+  useEffect(() => {
+    getRsvp().then((response) => {
+      setUcapanList(
+        Array.isArray(response) ? response.map((item: any) => ({
+          nama: item.name,
+          alamat: item.address,
+          kehadiran: item.present,
+          pesan: item.message,
+        })) : []
+      );
+    });
+  }
+    , []);
+
   const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (form.nama && form.ucapan) {
-      setUcapanList([{ nama: form.nama, pesan: form.ucapan }, ...ucapanList]);
-      setForm({ nama: "", alamat: "", kehadiran: "", ucapan: "" });
-    }
+
+    postRsvp(
+      {
+        name: form.nama,
+        present: form.kehadiran,
+        phone: form.alamat,
+        message: form.ucapan
+      }
+    ).then(() => {
+      setForm({
+        nama: "",
+        alamat: "",
+        kehadiran: true,
+        ucapan: "",
+      });
+
+      getRsvp().then((response) => {
+        setUcapanList(
+          Array.isArray(response) ? response.map((item: any) => ({
+            nama: item.name,
+            alamat: item.address,
+            kehadiran: item.present,
+            pesan: item.message,
+          })) : []
+        );
+      });
+    });
   };
 
   return (
@@ -108,10 +142,11 @@ const Rsvp = () => {
 
       <div className="border-t mt-8 pb-20 max-w-md mx-auto px-4">
         {ucapanList.map((item, index) => (
+
           <div key={index} className="bg-orange-200 p-4 my-2 rounded-md">
             <div className="flex items-center space-x-2 font-semibold">
               <div className="bg-orange-300 text-sm font-bold w-7 h-7 flex items-center justify-center rounded-full">
-                {item.nama.slice(0, 2).toUpperCase()}
+                {item.nama.charAt(0).toUpperCase()}
               </div>
               <span>{item.nama}</span>
             </div>

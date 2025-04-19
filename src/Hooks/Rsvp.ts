@@ -7,6 +7,7 @@ interface dataRsvp {
     present: boolean;
 }
 
+
 const postRsvp = ({ name, phone, message, present }: dataRsvp): void => {
     try {
         axios.post(
@@ -24,10 +25,10 @@ const postRsvp = ({ name, phone, message, present }: dataRsvp): void => {
             }
         )
             .then((response) => {
-                console.log("Response:", response.data);
+                return response.data.message;
             })
             .catch((error) => {
-                console.error("Error:", error);
+                return error.response.data.message;
             });
     } catch (error) {
         console.log(error);
@@ -41,7 +42,7 @@ const getRsvp = async (): Promise<dataRsvp[]> => {
                 "Content-Type": "application/json",
             },
         });
-        const dataRsvp = response.data
+        const dataRsvp = response.data.data
         return dataRsvp;
     } catch (error) {
         console.error("Error fetching data:", error);
