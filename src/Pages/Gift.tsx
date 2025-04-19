@@ -10,7 +10,7 @@ const Gift: React.FC = () => {
         subtitle="GIFT OF LOVE"
       />
 
-      <div className="flex flex-col items-center p-5 min-h-screen gap-6">
+      <div className="flex flex-col items-center p-5 min-h-screen gap-6 pb-20 font-serif text-neutral-900">
         <div className="text-center max-w-xl">
           <p className="text-md font-semibold leading-relaxed">
             Kehadiran Anda sudah menjadi hadiah terindah bagi kami.<br />

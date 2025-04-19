@@ -1,7 +1,6 @@
 // import React from 'react'
 
 import Header from "../Components/Header";
-import MenuBar from "../Components/MenuBar";
 
 const Couple = () => {
   return (
@@ -10,20 +9,20 @@ const Couple = () => {
         mainTitle="INFFOCUS: THE COUPLE"
         subtitle="THEY ARE NOT JUST THE HEADLINE — THEY ARE THE WHOLE STORY"
       />
-      <div className="w-full flex justify-center my-3">
+      <div className="w-full  flex justify-center my-3">
         <img
           src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt="Gugun and Mila"
           className="w-full h-[250px] max-w-xs object-cover mb-3 border border-black"
         />
       </div>
-      <div className="text-center font-serif">
+      <div className="text-center p-5 font-serif">
         <h2 className="text-2xl font-bold text-red-700 border-y py-3 border-black">
-          GUGUN <span className="italic text-black">and</span> MILA
+          GUGUN <span className="charm-reguler text-black ">And</span> MILA
         </h2>
       </div>
 
-      <div className="text-sm font-serif text-justify leading-relaxed my-5">
+      <div className="text-sm p-5 font-serif text-justify leading-relaxed my-5">
         <p>
           Their story began with a simple meeting and blossomed into something
           extraordinary — a bond built on love, trust, and shared dreams. They
@@ -34,11 +33,9 @@ const Couple = () => {
         </p>
       </div>
 
-      <div className="text-[10px] text-center border-y py-3 border-blackpt-2 font-serif">
+      <div className="text-[10px] text-center border-y py-3 border-black pt-2 font-serif">
         Published by The Eternal Love of Gugun & Mila
       </div>
-
-      <MenuBar />
     </>
   );
 };

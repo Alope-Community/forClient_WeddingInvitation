@@ -1,11 +1,8 @@
 import Header from '../Components/Header'
 import Countdown from '../Components/Coutdown'
 import Location from '../Components/Location'
-import { useNavigate } from 'react-router-dom'
-import MenuBar from '../Components/MenuBar'
 
 const Place = () => {
-  const navigate = useNavigate();
   const handleMapsKlik = () => {
     window.location.href = 'https://www.google.com/maps/dir//2FQG%2BXHG,+Jl.+Dr.+Ir.+Soekarno,+Winduherang,+Kec.+Kuningan,+Kabupaten+Kuningan,+Jawa+Barat+45552,+Indonesia/@-6.960065,108.3940548,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x2e6f168999f5289b:0x82e5f55d2f541814!2m2!1d108.4764487!2d-6.9600701?entry=ttu&g_ep=EgoyMDI1MDQxMy4wIKXMDSoASAFQAw%3D%3D'
   }
@@ -50,7 +47,6 @@ const Place = () => {
 
         <Countdown />
       </div>
-      <MenuBar />
     </>
   )
 }
