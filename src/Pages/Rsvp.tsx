@@ -75,7 +75,7 @@ const Rsvp = () => {
               value="hadir"
               checked={form.kehadiran === "hadir"}
               onChange={handleChange}
-              className="accent-[rgb(121,85,72)]" // warna coklat (brown)
+              className="accent-[rgb(121,85,72)]"
             />
             <span>Iya, Saya akan datang</span>
           </label>
