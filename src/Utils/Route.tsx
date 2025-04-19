@@ -5,8 +5,8 @@ import { CgMail } from "react-icons/cg";
 import { FaMessage } from "react-icons/fa6";
 import { TbMapShare } from "react-icons/tb";
 import Place from "../Pages/Location";
-// import Rsvp from "../Pages/Rsvp";
-import Rsvp from "../Pages/RSVP";
+import Closing from "../Pages/Closing";
+import Rsvp from "../Pages/Rsvp";
 
 const routes = [
   {
@@ -22,16 +22,16 @@ const routes = [
     label: "Couple",
   },
   {
+    path: "/closing",
+    element: <Closing />,
+    icon: <GiLovers />,
+    label: "Closing",
+  },
+  {
     path: "/location",
     element: <Place />,
     icon: <TbMapShare />,
     label: "Location",
-  },
-  {
-    path: "/rsvp",
-    element: <Rsvp />,
-    icon: <FaMessage />,
-    label: "RSVP",
   },
   {
     path: "/rsvp",
