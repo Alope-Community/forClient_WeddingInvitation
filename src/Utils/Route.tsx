@@ -47,6 +47,12 @@ const routes = [
     icon: <CgClose />,
     label: "Closing",
   },
+  {
+    path: "/closing",
+    element: <Closing />,
+    icon: <CgClose />,
+    label: "Closing",
+  },
 ];
 
 export default routes;

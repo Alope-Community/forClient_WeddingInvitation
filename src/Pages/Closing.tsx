@@ -1,6 +1,5 @@
 // import React from "react";
 import Header from "../Components/Header";
-import MenuBar from "../Components/MenuBar";
 
 const Closing = () => {
   return (
@@ -27,8 +26,6 @@ const Closing = () => {
           </div>
         </div>
       </div>
-
-      <MenuBar />
     </>
   );
 };

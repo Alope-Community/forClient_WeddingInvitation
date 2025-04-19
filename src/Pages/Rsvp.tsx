@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Header from "../Components/Header";
-import MenuBar from "../Components/MenuBar";
 
 const Rsvp = () => {
   const [form, setForm] = useState({
@@ -121,7 +120,6 @@ const Rsvp = () => {
         ))}
       </div>
 
-      <MenuBar />
     </>
   );
 };
