@@ -8,7 +8,7 @@ const MenuBar = () => {
     <>
       <FloatButton />
       <div className="bg-[#8b4e1f] max-w-[500px] mx-auto fixed bottom-0 right-auto py-3 overflow-x-auto z-50">
-        <div className="flex flex-nowrap w-[100%] mr-10 items-center px-2 gap-4 text-white overflow-x-auto">
+        <div className="flex flex-nowrap w-[100%] mr-20 items-center px-2 gap-4 text-white overflow-x-auto">
           {routes.map((route, index) => (
             <div
               key={index}

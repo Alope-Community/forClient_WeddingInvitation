@@ -27,7 +27,7 @@ const Countdown = () => {
   }, []);
 
   return (
-    <div className="flex justify-around pt-4 pb-5 text-[#BE1D1D] font-bold">
+    <div className="flex justify-around pt-4 pb-20 text-[#BE1D1D] font-bold">
       <div>
         <p className="text-2xl">{String(timeLeft.days).padStart(2, "0")}</p>
         <p className="text-xs">Days</p>
