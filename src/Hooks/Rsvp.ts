@@ -1,7 +1,7 @@
 // hooks/useSendMessage.ts
 import { useEffect, useState } from "react";
 import axios from "axios";
-import toast from "react-hot-toast";
+const api = import.meta.env.VITE_API_URL;
 
 interface MessagePayload {
   name: string;
@@ -26,7 +26,7 @@ const useSendMessage = () => {
 
     try {
       const res = await axios.post<SendMessageResponse>(
-        "http://localhost:3000/api/messages/send",
+        api + "messages/send",
         payload
       );
       setResponse(res.data);
@@ -62,7 +62,7 @@ const useFetchMessages = () => {
 
   const fetchMessages = async () => {
     try {
-      axios.get("http://localhost:3000/api/messages").then((res) => {
+      axios.get(api + "messages").then((res) => {
         setMessages(res.data.data);
       }).catch((error) =>{
         setMessages([]); 

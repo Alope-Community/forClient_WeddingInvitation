@@ -2,8 +2,15 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import routes from "./Utils/Route";
 import MenuBar from "./Components/MenuBar";
 import { Toaster } from "react-hot-toast";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function App() {
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
   return (
     <>
       <Router>

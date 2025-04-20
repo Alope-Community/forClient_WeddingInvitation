@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 interface HeaderProps {
   mainTitle: string;
@@ -9,15 +9,15 @@ const Header: React.FC<HeaderProps> = ({ mainTitle, subtitle }) => {
   return (
     <div className="text-xs text-center p-5 font-serif pb-1">
       <div className="flex justify-between font-medium">
-        <span>May, 25 2025</span>
-        <span>BREAKING NEWS</span>
-        <span>G&M</span>
+        <span data-aos="fade-down">May, 25 2025</span>
+        <span data-aos="fade-down">BREAKING NEWS</span>
+        <span data-aos="fade-down">G&M</span>
       </div>
-      <h1 className="abril-fatface text-lg font-bold mt-2 border-y py-3 border-black">
+      <h1 className="abril-fatface text-lg font-bold mt-2 border-y py-3 border-black" data-aos="fade-up">
         {mainTitle}
       </h1>
       {subtitle && (
-        <p className="text-[10px] font-semibold uppercase mt-3">{subtitle}</p>
+        <p className="text-[10px] font-semibold uppercase mt-3" data-aos="fade-up">{subtitle}</p>
       )}
     </div>
   );

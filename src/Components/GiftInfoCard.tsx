@@ -1,4 +1,5 @@
 import React from "react";
+import toast from "react-hot-toast";
 import { BiCopy } from "react-icons/bi";
 import { CgCreditCard } from "react-icons/cg";
 
@@ -12,11 +13,11 @@ interface GiftInfoCardProps {
 const GiftInfoCard: React.FC<GiftInfoCardProps> = ({ bank, accountNumber, name }) => {
   const handleCopy = () => {
     navigator.clipboard.writeText(accountNumber);
-    alert("Nomor rekening disalin!");
+    toast.success("No. Rek Berhasil Disalin")
   };
 
   return (
-    <div className="bg-[#DBAB82] rounded-xl p-5 w-full max-w-md shadow-md">
+    <div className="bg-[#DBAB82] hover:bg-[#DBAB82] rounded-xl p-5 w-full max-w-md shadow-md hover:shadow-xl" data-aos="fade-up">
       <div className="flex justify-between items-center border-b border-black pb-2 mb-4">
         <span className="text-lg font-semibold">{bank}</span>
         <CgCreditCard size={20}/>
