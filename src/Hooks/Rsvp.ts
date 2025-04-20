@@ -1,53 +1,88 @@
+// hooks/useSendMessage.ts
+import { useEffect, useState } from "react";
 import axios from "axios";
+import toast from "react-hot-toast";
 
-interface dataRsvp {
-    name: string;
-    phone: string;
-    message: string;
-    present: boolean;
+interface MessagePayload {
+  name: string;
+  phone: string;
+  message: string;
+  present: boolean;
 }
 
+interface SendMessageResponse {
+  success: boolean;
+  message: string;
+}
 
-const postRsvp = ({ name, phone, message, present }: dataRsvp): void => {
+const useSendMessage = () => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [response, setResponse] = useState<SendMessageResponse | null>(null);
+
+  const sendMessage = async (payload: MessagePayload) => {
+    setLoading(true);
+    setError(null);
+
     try {
-        axios.post(
-            "http://localhost:3000/api/messages/send",
-            {
-                name,
-                phone,
-                message,
-                present,
-            },
-            {
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            }
-        )
-            .then((response) => {
-                return response.data.message;
-            })
-            .catch((error) => {
-                return error.response.data.message;
-            });
-    } catch (error) {
-        console.log(error);
+      const res = await axios.post<SendMessageResponse>(
+        "http://localhost:3000/api/messages/send",
+        payload
+      );
+      setResponse(res.data);
+      return res.data;
+    } catch (err: any) {
+      setError(err.message || "Something went wrong");
+      return null;
+    } finally {
+      setLoading(false);
     }
+  };
+
+  return {
+    sendMessage,
+    loading,
+    error,
+    response,
+  };
 };
 
-const getRsvp = async (): Promise<dataRsvp[]> => {
+/**
+ * Get data message
+ */
+interface MessageItem {
+  name: string;
+  message: string;
+  present: boolean;
+  // createdAt?: string; //
+}
+
+const useFetchMessages = () => {
+  const [messages, setMessages] = useState<MessageItem[]>([]);
+
+  const fetchMessages = async () => {
     try {
-        const response = await axios.get("http://localhost:3000/api/messages", {
-            headers: {
-                "Content-Type": "application/json",
-            },
-        });
-        const dataRsvp = response.data.data
-        return dataRsvp;
-    } catch (error) {
-        console.error("Error fetching data:", error);
-        return [];
+      axios.get("http://localhost:3000/api/messages").then((res) => {
+        setMessages(res.data.data);
+      }).catch((error) =>{
+        setMessages([]); 
+        console.log('error');
+      });
+      
+    } catch (error: any) {
+      console.error("Gagal mengambil pesan:", error.response?.data || error.message);
+      setMessages([]); 
     }
+  };
+
+  useEffect(() => {
+    fetchMessages();
+  }, []);
+
+  return {
+    message: messages,
+    refetch: fetchMessages,
+  };
 };
 
-export { postRsvp, getRsvp };
+export { useSendMessage, useFetchMessages };

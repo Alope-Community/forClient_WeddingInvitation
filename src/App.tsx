@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import routes from "./Utils/Route";
 import MenuBar from "./Components/MenuBar";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
             ))}
           </Routes>
           <MenuBar />
+          <Toaster />
         </main>
       </Router>
     </>

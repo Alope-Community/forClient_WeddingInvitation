@@ -1,65 +1,67 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import Header from "../Components/Header";
-import { getRsvp, postRsvp } from "../Hooks/Rsvp";
+import { useFetchMessages, useSendMessage } from "../Hooks/Rsvp";
+import toast from "react-hot-toast";
+
+interface LocalMessageItem {
+  name: string;
+  message: string;
+  present: boolean;
+  createdAt: string
+}
 
 const Rsvp = () => {
   const [form, setForm] = useState({
-    nama: "",
-    alamat: "",
-    kehadiran: true,
-    ucapan: "",
+    name: "",
+    phone: "",
+    present: true,
+    message: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const { sendMessage, loading } = useSendMessage();
+  const { message: rawMessages, refetch } = useFetchMessages();
+  const ucapanList: LocalMessageItem[] = rawMessages.map((item: any) => ({
+    ...item,
+    createdAt: item.createdAt || new Date().toISOString(), // Ensure createdAt exists
+  }));
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setForm({ ...form, [name]: value });
+    setForm((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
-  const [ucapanList, setUcapanList] = useState<any[]>([]);
-
-  useEffect(() => {
-    getRsvp().then((response) => {
-      setUcapanList(
-        Array.isArray(response) ? response.map((item: any) => ({
-          nama: item.name,
-          alamat: item.address,
-          kehadiran: item.present,
-          pesan: item.message,
-        })) : []
-      );
-    });
-  }
-    , []);
-
-  const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    postRsvp(
-      {
-        name: form.nama,
-        present: form.kehadiran,
-        phone: form.alamat,
-        message: form.ucapan
-      }
-    ).then(() => {
+    const payload = {
+      name: form.name,
+      phone: form.phone,
+      message: form.message,
+      present: form.present === true,
+    };
+
+    const res = await sendMessage(payload);
+    if (res?.success) {
       setForm({
-        nama: "",
-        alamat: "",
-        kehadiran: true,
-        ucapan: "",
+        name: "",
+        phone: "",
+        present: true,
+        message: "",
       });
 
-      getRsvp().then((response) => {
-        setUcapanList(
-          Array.isArray(response) ? response.map((item: any) => ({
-            nama: item.name,
-            alamat: item.address,
-            kehadiran: item.present,
-            pesan: item.message,
-          })) : []
-        );
+      toast.success("Pesan Berhasil Dikirim", {
+        position: "top-right",
       });
-    });
+
+      refetch();
+    } else {
+      toast.error("Gagal Mengirim Pesan", {
+        position: "top-right",
+      })
+    }
   };
 
   return (
@@ -79,34 +81,34 @@ const Rsvp = () => {
         </p>
       </div>
 
-      <form
-        onSubmit={handleSubmit}
-        className="max-w-md mx-auto font-serif px-4 space-y-4"
-      >
+      <form onSubmit={handleSubmit} className="max-w-md mx-auto font-serif px-4 space-y-4">
         <input
           type="text"
-          name="nama"
+          name="name"
           placeholder="Nama"
-          value={form.nama}
+          value={form.name}
           onChange={handleChange}
           className="w-full rounded-md p-2 bg-[#DBAB82]"
+          required
         />
         <input
           type="text"
-          name="alamat"
-          placeholder="Alamat"
-          value={form.alamat}
+          name="phone"
+          placeholder="Alamat / Kontak"
+          value={form.phone}
           onChange={handleChange}
           className="w-full rounded-md p-2 bg-[#DBAB82]"
+          required
         />
+
         <div className="text-left space-y-1 text-sm">
           <p>Konfirmasi:</p>
           <label className="flex items-center space-x-2">
             <input
               type="radio"
-              name="kehadiran"
+              name="present"
               value="hadir"
-              checked={form.kehadiran === "hadir"}
+              checked={form.present === true}
               onChange={handleChange}
               className="accent-[rgb(121,85,72)]"
             />
@@ -115,9 +117,9 @@ const Rsvp = () => {
           <label className="flex items-center space-x-2">
             <input
               type="radio"
-              name="kehadiran"
+              name="present"
               value="tidak"
-              checked={form.kehadiran === "tidak"}
+              checked={form.present === false}
               onChange={handleChange}
               className="accent-[rgb(121,85,72)]"
             />
@@ -126,35 +128,49 @@ const Rsvp = () => {
         </div>
 
         <textarea
-          name="ucapan"
+          name="message"
           placeholder="Ucapan"
-          value={form.ucapan}
+          value={form.message}
           onChange={handleChange}
           className="w-full rounded-md p-2 h-24 bg-[#DBAB82]"
+          required
         />
+
         <button
           type="submit"
           className="w-full bg-orange-900 text-white py-2 rounded-full"
+          disabled={loading}
         >
-          Kirim Ucapan
+          {loading ? "Mengirim..." : "Kirim Ucapan"}
         </button>
       </form>
 
+
       <div className="border-t mt-8 pb-20 max-w-md mx-auto px-4">
-        {ucapanList.map((item, index) => (
-
-          <div key={index} className="bg-orange-200 p-4 my-2 rounded-md">
-            <div className="flex items-center space-x-2 font-semibold">
+        {Array.isArray(ucapanList) && ucapanList.length > 0 ? (
+          ucapanList.map((item: LocalMessageItem, index: number) => (
+            <div key={index} className="bg-orange-200 p-4 my-2 rounded-md">
+              <div className="flex items-center space-x-2 font-semibold">
               <div className="bg-orange-300 text-sm font-bold w-7 h-7 flex items-center justify-center rounded-full">
-                {item.nama.charAt(0).toUpperCase()}
+                {item.name.charAt(0).toUpperCase()}
               </div>
-              <span>{item.nama}</span>
+              <span>{item.name}</span>
+              <span className="text-xs text-gray-600">
+                {item.present ? "(Hadir)" : "(Tidak Hadir)"}
+              </span>
+              </div>
+              <p className="mt-2">{item.message}</p>
+              <div className="text-right text-xs text-gray-500">
+              {new Date(item.createdAt || "").toLocaleString("id-ID")}
+              </div>
             </div>
-            <p className="mt-2">{item.pesan}</p>
+          ))
+        ) : (
+          <div className="text-center text-gray-500 my-4">
+            Jadilah yang pertama mengucapkan.
           </div>
-        ))}
+        )}
       </div>
-
     </>
   );
 };
