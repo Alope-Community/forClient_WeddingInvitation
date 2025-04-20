@@ -7,6 +7,7 @@ import { TbMapShare } from "react-icons/tb";
 import Place from "../Pages/Location";
 import Closing from "../Pages/Closing";
 import Rsvp from "../Pages/Rsvp";
+import Galery from "../Pages/Galery";
 
 const routes = [
   {
@@ -26,6 +27,12 @@ const routes = [
     element: <Closing />,
     icon: <GiLovers />,
     label: "Closing",
+  },
+  {
+    path: "/galery",
+    element: <Galery />,
+    icon: <GiLovers />,
+    label: "Galery",
   },
   {
     path: "/location",
