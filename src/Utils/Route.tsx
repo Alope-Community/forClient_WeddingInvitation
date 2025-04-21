@@ -14,10 +14,6 @@ import { Navigate } from "react-router-dom";
 
 const routes = [
   {
-    path: "/",
-    element: <Navigate to="/people-invitation" replace />,
-  },
-  {
     path: "/:name",
     element: <Home />,
     icon: <CgMail />,
@@ -58,6 +54,9 @@ const routes = [
     element: <Closing />,
     icon: <CgClose />,
     label: "Closing",
+  },{
+    path: "/",
+    element: <Navigate to="/people-invitation" replace />,
   },
 ];
 
