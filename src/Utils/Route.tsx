@@ -10,8 +10,13 @@ import Rsvp from "../Pages/Rsvp";
 import Gift from "../Pages/Gift";
 import Galery from "../Pages/Galery.tsx";
 import { ImImages } from "react-icons/im";
+import { Navigate } from "react-router-dom";
 
 const routes = [
+  {
+    path: "/",
+    element: <Navigate to="/people-invitation" replace />,
+  },
   {
     path: "/:name",
     element: <Home />,
