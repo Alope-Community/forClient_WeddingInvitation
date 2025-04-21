@@ -2,13 +2,12 @@ import Home from "../Pages/Home";
 import Couple from "../Pages/Couple";
 import { GiLovers } from "react-icons/gi";
 import { CgClose, CgMail } from "react-icons/cg";
-import { FaMessage } from "react-icons/fa6";
+import { FaGift, FaMessage } from "react-icons/fa6";
 import { TbMapShare } from "react-icons/tb";
 import Place from "../Pages/Location";
-import Rsvp from "../Pages/Rsvp.tsx";
-import { FaGift } from "react-icons/fa";
-import Gift from "../Pages/Gift.tsx";
-import Closing from "../Pages/Closing.tsx";
+import Closing from "../Pages/Closing";
+import Rsvp from "../Pages/Rsvp";
+import Gift from "../Pages/Gift";
 
 const routes = [
   {
@@ -22,6 +21,12 @@ const routes = [
     element: <Couple />,
     icon: <GiLovers />,
     label: "Couple",
+  },
+  {
+    path: "/closing",
+    element: <Closing />,
+    icon: <GiLovers />,
+    label: "Closing",
   },
   {
     path: "/location",

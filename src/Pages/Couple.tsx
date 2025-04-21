@@ -33,8 +33,10 @@ const Couple = () => {
         </p>
       </div>
 
-      <div className="text-[10px] text-center border-y py-3 border-black pt-2 font-serif">
-        Published by The Eternal Love of Gugun & Mila
+      <div className="w-[90%] mx-auto mb-8">
+        <div className="text-[11px] text-center border-y border-black py-3 font-serif">
+          Published by The Eternal Love of Gugun & Mila
+        </div>
       </div>
     </>
   );
