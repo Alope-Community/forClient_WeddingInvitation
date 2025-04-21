@@ -22,7 +22,7 @@ const Couple = () => {
         </h2>
       </div>
 
-      <div className=" text-sm p-5 font-serif text-justify leading-relaxed mb-10">
+      <div className=" text-sm p-5 font-serif text-justify leading-relaxed ">
         <p className="" data-aos="fade-up">
           Their story began with a simple meeting and blossomed into something
           extraordinary — a bond built on love, trust, and shared dreams. They
@@ -33,7 +33,7 @@ const Couple = () => {
         </p>
       </div>
 
-      <div className="w-[90%] mx-auto mb-8">
+      <div className="w-[90%] mx-auto pb-24" data-aos="fade-up">
         <div className="text-[11px] text-center border-y border-black py-3 font-serif">
           Published by The Eternal Love of Gugun & Mila
         </div>

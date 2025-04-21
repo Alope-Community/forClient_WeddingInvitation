@@ -148,7 +148,7 @@ const Rsvp = () => {
       </form>
 
 
-      <div className="border-t mt-8 pb-20 max-w-md mx-auto px-4">
+      <div className="border-t mt-8 pb-20 max-w-md mx-auto px-4" data-aos="fade-up">
         {Array.isArray(ucapanList) && ucapanList.length > 0 ? (
           ucapanList.map((item: LocalMessageItem, index: number) => (
             <div key={index} className="bg-orange-200 p-4 my-2 rounded-md">

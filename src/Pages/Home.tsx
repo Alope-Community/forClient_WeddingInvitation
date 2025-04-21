@@ -1,5 +1,5 @@
 // import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Header from "../Components/Header";
 
 const Home = () => {
@@ -9,11 +9,18 @@ const Home = () => {
     navigate("/couple");
   };
 
+  const { name } = useParams<{ name?: string }>();
+
+  const formatedName = name
+    ? name.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+    : '';
+  
+
   return (
     <>
       <Header mainTitle="THE LOVE ISSUE" subtitle="" />
 
-      <div className="min-h-screen text-neutral-900 font-serif flex flex-col items-center text-center px-4 pt-3 pb-20">
+      <div className="min-h-screen text-neutral-900 font-serif flex flex-col items-center text-center px-4 pt-3 pb-25">
         <p className="text-[14px] italic mb-6 max-w-sm">
           ONE VOW, TWO HEARTS, AND THE BEGINNING OF A FOREVER STORY
         </p>
@@ -30,7 +37,7 @@ const Home = () => {
           </h2>
           <p className="text-sm mb-2">Kepada Yth.</p>
           <p className="text-sm font-medium mb-1">Bapak/Ibu/Saudara/i</p>
-          <p className="text-sm italic mb-6">[Nama Tamu]</p>
+          <p className="text-sm italic mb-6">{formatedName}</p>
 
           <button
             onClick={handleOpenInvitation}

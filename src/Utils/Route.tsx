@@ -8,10 +8,12 @@ import Place from "../Pages/Location";
 import Closing from "../Pages/Closing";
 import Rsvp from "../Pages/Rsvp";
 import Gift from "../Pages/Gift";
+import Galery from "../Pages/Galery.tsx";
+import { ImImages } from "react-icons/im";
 
 const routes = [
   {
-    path: "/",
+    path: "/:name",
     element: <Home />,
     icon: <CgMail />,
     label: "Opening",
@@ -21,12 +23,6 @@ const routes = [
     element: <Couple />,
     icon: <GiLovers />,
     label: "Couple",
-  },
-  {
-    path: "/closing",
-    element: <Closing />,
-    icon: <GiLovers />,
-    label: "Closing",
   },
   {
     path: "/location",
@@ -45,6 +41,12 @@ const routes = [
     element: <Gift />,
     icon: <FaGift />,
     label: "Gift",
+  },
+  {
+    path: "/galery",
+    element: <Galery />,
+    icon: <ImImages /> ,
+    label: 'Galery'
   },
   {
     path: "/closing",

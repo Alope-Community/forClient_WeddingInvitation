@@ -33,12 +33,13 @@ const Galery = () => {
     <>
       <Header mainTitle="A JOURNEY OF US" subtitle="May 25, 2025" />
 
-      <div className="min-h-screen font-serif text-center px-4 pb-7 text-neutral-900 pt-6">
+      <div className="min-h-screen font-serif text-center px-4 pb-24 text-neutral-900 pt-6">
         <div className="grid grid-cols-3 auto-rows-[120px] gap-2 max-w-4xl mx-auto">
           {images.map((src, index) => (
             <img
               key={index}
               src={src}
+              data-aos="fade-up"
               alt={`Foto ${index + 1}`}
               className={`w-full h-full object-cover ${
                 layoutClasses[index % layoutClasses.length]
