@@ -4,12 +4,11 @@ import { Link, useLocation } from "react-router-dom";
 import FloatButton from "./ActionButton";
 
 const MenuBar = () => {
-  const location = useLocation();
   return (
     <>
       <FloatButton />
-      <div className="bg-[#8b4e1f] max-w-[500px] mx-auto fixed bottom-0 right-auto py-3 overflow-x-hidden z-50">
-        <div className="flex flex-nowrap w-[100%] items-center px-2 gap-4 overflow-x-auto text-white">
+      <div className="bg-[#8b4e1f] max-w-[500px] mx-auto fixed bottom-0 right-auto py-3 overflow-x-auto z-50">
+        <div className={`flex flex-nowrap w-[100%] items-center px-2 gap-4 text-white`}>
           {routes.map((route, index) => {
             const isActive = location.pathname === route.path;
             return (

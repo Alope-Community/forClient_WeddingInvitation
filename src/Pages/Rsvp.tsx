@@ -20,9 +20,10 @@ const Rsvp = () => {
 
   const { sendMessage, loading } = useSendMessage();
   const { message: rawMessages, refetch } = useFetchMessages();
+  
   const ucapanList: LocalMessageItem[] = rawMessages.map((item: any) => ({
     ...item,
-    createdAt: item.createdAt || new Date().toISOString(), // Ensure createdAt exists
+    createdAt: item.createdAt || new Date().toISOString(),
   }));
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

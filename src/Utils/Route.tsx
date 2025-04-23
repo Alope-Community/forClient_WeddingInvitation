@@ -1,58 +1,64 @@
 import Home from "../Pages/Home";
 import Couple from "../Pages/Couple";
-import { GiLovers } from "react-icons/gi";
-import { CgClose, CgMail } from "react-icons/cg";
-import { FaGift, FaMessage } from "react-icons/fa6";
-import { TbMapShare } from "react-icons/tb";
+import { CgClose } from "react-icons/cg";
+import { FaGift, FaImage, FaMapLocation, FaMessage } from "react-icons/fa6";
 import Place from "../Pages/Location";
 import Closing from "../Pages/Closing";
 import Rsvp from "../Pages/Rsvp";
 import Gift from "../Pages/Gift";
 import Galery from "../Pages/Galery.tsx";
-import { ImImages } from "react-icons/im";
-import { Navigate } from "react-router-dom";
+import { FaMailBulk } from "react-icons/fa";
+import { GiLovers } from "react-icons/gi";
+
 
 const routes = [
   {
+    id: 1,
     path: "/:name",
     element: <Home />,
-    icon: <CgMail />,
+    icon: <FaMailBulk size={20} />,
     label: "Opening",
   },
   {
-    path: "/couple",
+    id: 2,
+    path: "/couple/:name",
     element: <Couple />,
-    icon: <GiLovers />,
+    icon: <GiLovers size={20} />,
     label: "Couple",
   },
   {
+    id: 3,
     path: "/location",
     element: <Place />,
-    icon: <TbMapShare />,
+    icon: <FaMapLocation size={20} />,
     label: "Location",
   },
   {
+    id: 4,
     path: "/rsvp",
     element: <Rsvp />,
-    icon: <FaMessage />,
+    icon: <FaMessage size={20} />,
     label: "RSVP",
   },
   {
+    id: 5,
     path: "/gift",
     element: <Gift />,
-    icon: <FaGift />,
+    icon: <FaGift size={20} />,
     label: "Gift",
   },
   {
+    id: 6,
     path: "/galery",
     element: <Galery />,
-    icon: <ImImages /> ,
-    label: 'Galery'
+    icon: <FaImage size={20} />,
+    label: "Galery",
   },
   {
+    id: 7,
     path: "/closing",
     element: <Closing />,
-    icon: <CgClose />,
+    icon: <CgClose size={20} />,
     label: "Closing",
   },
 ];

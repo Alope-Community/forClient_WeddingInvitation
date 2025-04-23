@@ -49,8 +49,6 @@ const Galery = () => {
           ))}
         </div>
       </div>
-
-      <MenuBar />
     </>
   );
 };
