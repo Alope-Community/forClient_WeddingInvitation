@@ -54,9 +54,6 @@ const routes = [
     element: <Closing />,
     icon: <CgClose />,
     label: "Closing",
-  },{
-    path: "/",
-    element: <Navigate to="/people-invitation" replace />,
   },
 ];
 

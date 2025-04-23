@@ -17,7 +17,6 @@ const FloatButton: React.FC = () => {
               setIsPlaying(true);
             })
             .catch(() => {
-              console.log("Klik Tombol Play");
             });
         }
       }
@@ -43,7 +42,7 @@ const FloatButton: React.FC = () => {
   };
 
   return (
-    <div className="fixed bottom-24 right-1 md:right-100 flex flex-col items-center space-y-3 z-50">
+    <div className="mx-auto fixed bottom-25 right-auto ml-2 flex flex-col items-center space-y-3 z-50">
       <div className="bg-yellow-700/50  rounded-full flex flex-col items-center space-y-3 p-2">
         <button
           onClick={toogleWa}
@@ -51,7 +50,7 @@ const FloatButton: React.FC = () => {
         >
           <FaWhatsapp size={20} />
         </button>
-        <audio ref={audioRef} src="/audio/cinta-terakhir.mp3" />
+        <audio ref={audioRef} vocab="80" src="/audio/cinta-terakhir.mp3" />
         <button
           onClick={togglePlay}
           className="bg-yellow-700 text-white p-3 rounded-full shadow-lg hover:scale-105 transition-transform"

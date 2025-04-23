@@ -39,6 +39,7 @@ const Galery = () => {
             <img
               key={index}
               src={src}
+              data-aos-once="true"
               data-aos="fade-up"
               alt={`Foto ${index + 1}`}
               className={`w-full h-full object-cover ${
