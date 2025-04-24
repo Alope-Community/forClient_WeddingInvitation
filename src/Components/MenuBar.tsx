@@ -4,23 +4,25 @@ import { Link, useLocation } from "react-router-dom";
 import FloatButton from "./ActionButton";
 
 const MenuBar = () => {
-  const location = useLocation();
   return (
     <>
       <FloatButton />
-      <div className="bg-[#8b4e1f] max-w-[500px] mx-auto fixed bottom-0 right-auto py-3 overflow-x-auto z-50">
-        <div className="flex flex-nowrap w-[100%] mr-20 items-center px-2 gap-4 text-white">
+      <div className="bg-[#8b4e1f] max-w-[500px]  fixed bottom-0 o py-3  z-50">
+        <div className={`flex flex-nowrap w-[100%] items-center px-2 gap-4 overflow-x-auto text-white`}>
           {routes.map((route, index) => {
             const isActive = location.pathname === route.path;
             return (
               <div
                 key={index}
-                className="flex flex-col justify-center items-center min-w-[80px]"
+                className={`flex flex-col justify-center items-center min-w-[60px] sm:min-w-[80px] ${
+                  route.id === 7 && "mr-44 overflow-x-hidden sm:mr-0"
+                }` }
               >
-                <Link to={route.path} className="flex flex-col items-center">
+                <Link to={route.path} className={`flex flex-col items-center`}
+                >
                   <div
                     className={`w-8 h-8 flex items-center justify-center rounded-full transition-all duration-300 ${
-                      isActive ? "scale-125 text-white drop-shadow-md" : "text-white opacity-70"
+                      isActive ? "scale-125 text-white drop-shadow-md" : "text-white opacity-60"
                     }`}
                   >
                     <div className="text-lg">{route.icon}</div>

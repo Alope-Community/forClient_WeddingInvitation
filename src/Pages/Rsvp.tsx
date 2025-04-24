@@ -20,9 +20,10 @@ const Rsvp = () => {
 
   const { sendMessage, loading } = useSendMessage();
   const { message: rawMessages, refetch } = useFetchMessages();
+  
   const ucapanList: LocalMessageItem[] = rawMessages.map((item: any) => ({
     ...item,
-    createdAt: item.createdAt || new Date().toISOString(), // Ensure createdAt exists
+    createdAt: item.createdAt || new Date().toISOString(),
   }));
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -70,10 +71,10 @@ const Rsvp = () => {
       />
 
       <div className="font-serif text-center">
-        <h2 className="text-xl font-bold mx-5 mt-3 border-y py-3 mb-4 tracking-wider" data-aos="fade-down">
+        <h2 className="text-xl font-bold mx-5 mt-3 border-y py-3 mb-4 tracking-wider" data-aos-once="true" data-aos="fade-down">
           RSVP & GREETING
         </h2>
-        <p className="max-w-md mx-auto text-sm text-neutral-700 px-4 mb-6" data-aos="fade-down">
+        <p className="max-w-md mx-auto text-sm text-neutral-700 px-4 mb-6" data-aos-once="true" data-aos="fade-down">
           Konfirmasi kehadiranmu dan kirimkan ucapan serta doa terbaik untuk
           kedua mempelai di hari istimewa mereka melalui kolom di bawah ini
         </p>
@@ -87,7 +88,7 @@ const Rsvp = () => {
           value={form.name}
           onChange={handleChange}
           className="w-full rounded-md p-2 bg-[#DBAB82]"
-          data-aos="fade-up"
+          data-aos-once="true" data-aos="fade-up"
           required
         />
         <input
@@ -97,11 +98,11 @@ const Rsvp = () => {
           value={form.phone}
           onChange={handleChange}
           className="w-full rounded-md p-2 bg-[#DBAB82]"
-          data-aos="fade-up"
+          data-aos-once="true" data-aos="fade-up"
           required
         />
 
-        <div className="text-left space-y-1 text-sm" data-aos="fade-up">
+        <div className="text-left space-y-1 text-sm" data-aos-once="true" data-aos="fade-up">
           <p>Konfirmasi:</p>
           <label className="flex items-center space-x-2">
             <input
@@ -114,7 +115,7 @@ const Rsvp = () => {
             />
             <span>Iya, Saya akan datang</span>
           </label>
-          <label className="flex items-center space-x-2" data-aos="fade-up">
+          <label className="flex items-center space-x-2" data-aos-once="true" data-aos="fade-up">
             <input
               type="radio"
               name="present"
@@ -133,14 +134,14 @@ const Rsvp = () => {
           value={form.message}
           onChange={handleChange}
           className="w-full rounded-md p-2 h-24 bg-[#DBAB82]"
-          data-aos="fade-up"
+          data-aos-once="true" data-aos="fade-up"
           required
         />
 
         <button
           type="submit"
           className="w-full bg-orange-900 text-white py-2 rounded-full"
-          data-aos="fade-up"
+          data-aos-once="true" data-aos="fade-up"
           disabled={loading}
         >
           {loading ? "Mengirim..." : "Kirim Ucapan"}
@@ -148,7 +149,7 @@ const Rsvp = () => {
       </form>
 
 
-      <div className="border-t mt-8 pb-20 max-w-md mx-auto px-4">
+      <div className="border-t mt-8 pb-20 max-w-md mx-auto px-4" data-aos-once="true" data-aos="fade-up">
         {Array.isArray(ucapanList) && ucapanList.length > 0 ? (
           ucapanList.map((item: LocalMessageItem, index: number) => (
             <div key={index} className="bg-orange-200 p-4 my-2 rounded-md">
@@ -168,7 +169,7 @@ const Rsvp = () => {
             </div>
           ))
         ) : (
-          <div className="text-center text-gray-500 my-4 pb-2" data-aos="fade-down">
+          <div className="text-center text-gray-500 my-4 pb-2" data-aos-once="true" data-aos="fade-down">
             Jadilah yang pertama mengucapkan.
           </div>
         )}

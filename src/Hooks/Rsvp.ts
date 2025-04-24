@@ -66,11 +66,10 @@ const useFetchMessages = () => {
         setMessages(res.data.data);
       }).catch((error) =>{
         setMessages([]); 
-        console.log('error');
       });
       
     } catch (error: any) {
-      console.error("Gagal mengambil pesan:", error.response?.data || error.message);
+  
       setMessages([]); 
     }
   };
