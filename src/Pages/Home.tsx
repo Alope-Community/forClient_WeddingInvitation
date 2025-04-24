@@ -1,11 +1,13 @@
 // import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Header from "../Components/Header";
+import { setParams } from "../Hooks/params";
 
 const Home = () => {
   const navigate = useNavigate();
   
   const { name } = useParams<{ name?: string }>();
+  setParams(name || '');
   
   const handleOpenInvitation = () => {
     navigate(`/couple/${name}`);
