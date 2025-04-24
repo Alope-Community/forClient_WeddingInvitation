@@ -43,7 +43,7 @@ const FloatButton: React.FC = () => {
   };
 
   return (
-    <div className="fixed bottom-20 right-1 flex flex-col items-center space-y-3 z-50">
+    <div className="fixed bottom-24 right-1 md:right-100 flex flex-col items-center space-y-3 z-50">
       <div className="bg-yellow-700/50  rounded-full flex flex-col items-center space-y-3 p-2">
         <button
           onClick={toogleWa}
