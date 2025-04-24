@@ -20,7 +20,7 @@ const Rsvp = () => {
 
   const { sendMessage, loading } = useSendMessage();
   const { message: rawMessages, refetch } = useFetchMessages();
-  
+
   const ucapanList: LocalMessageItem[] = rawMessages.map((item: any) => ({
     ...item,
     createdAt: item.createdAt || new Date().toISOString(),
@@ -65,22 +65,19 @@ const Rsvp = () => {
 
   return (
     <>
-      <Header
-        mainTitle="REPLY TO THE HEADLINE"
-        subtitle="RSVP & LET LOVE KNOW YOU'RE COMING"
-      />
+      <Header mainTitle="DROP YOUR GREETING" subtitle="RSVP AND GREETING" />
 
       <div className="font-serif text-center">
-        <h2 className="text-xl font-bold mx-5 mt-3 border-y py-3 mb-4 tracking-wider" data-aos-once="true" data-aos="fade-down">
-          RSVP & GREETING
-        </h2>
-        <p className="max-w-md mx-auto text-sm text-neutral-700 px-4 mb-6" data-aos-once="true" data-aos="fade-down">
+        <p className="max-w-lg mx-auto text-sm sm:text-base mt-2 mb-5 text-neutral-800">
           Konfirmasi kehadiranmu dan kirimkan ucapan serta doa terbaik untuk
           kedua mempelai di hari istimewa mereka melalui kolom di bawah ini
         </p>
       </div>
 
-      <form onSubmit={handleSubmit} className="max-w-md mx-auto font-serif px-4 space-y-4">
+      <form
+        onSubmit={handleSubmit}
+        className="max-w-md mx-auto font-serif px-4 space-y-4"
+      >
         <input
           type="text"
           name="name"
@@ -88,7 +85,8 @@ const Rsvp = () => {
           value={form.name}
           onChange={handleChange}
           className="w-full rounded-md p-2 bg-[#DBAB82]"
-          data-aos-once="true" data-aos="fade-up"
+          data-aos-once="true"
+          data-aos="fade-up"
           required
         />
         <input
@@ -98,11 +96,16 @@ const Rsvp = () => {
           value={form.phone}
           onChange={handleChange}
           className="w-full rounded-md p-2 bg-[#DBAB82]"
-          data-aos-once="true" data-aos="fade-up"
+          data-aos-once="true"
+          data-aos="fade-up"
           required
         />
 
-        <div className="text-left space-y-1 text-sm" data-aos-once="true" data-aos="fade-up">
+        <div
+          className="text-left space-y-1 text-sm"
+          data-aos-once="true"
+          data-aos="fade-up"
+        >
           <p>Konfirmasi:</p>
           <label className="flex items-center space-x-2">
             <input
@@ -115,12 +118,16 @@ const Rsvp = () => {
             />
             <span>Iya, Saya akan datang</span>
           </label>
-          <label className="flex items-center space-x-2" data-aos-once="true" data-aos="fade-up">
+          <label
+            className="flex items-center space-x-2"
+            data-aos-once="true"
+            data-aos="fade-up"
+          >
             <input
               type="radio"
               name="present"
               value="tidak"
-              checked={form.present === false}
+              checked={form.present === true}
               onChange={handleChange}
               className="accent-[rgb(121,85,72)]"
             />
@@ -134,14 +141,16 @@ const Rsvp = () => {
           value={form.message}
           onChange={handleChange}
           className="w-full rounded-md p-2 h-24 bg-[#DBAB82]"
-          data-aos-once="true" data-aos="fade-up"
+          data-aos-once="true"
+          data-aos="fade-up"
           required
         />
 
         <button
           type="submit"
-          className="w-full bg-orange-900 text-white py-2 rounded-full"
-          data-aos-once="true" data-aos="fade-up"
+          className="w-full bg-[#8A5529] text-white py-2 rounded-full"
+          data-aos-once="true"
+          data-aos="fade-up"
           disabled={loading}
         >
           {loading ? "Mengirim..." : "Kirim Ucapan"}
@@ -149,30 +158,33 @@ const Rsvp = () => {
       </form>
 
 
-      <div className="border-t mt-8 pb-20 max-w-md mx-auto px-4" data-aos-once="true" data-aos="fade-up">
-        {Array.isArray(ucapanList) && ucapanList.length > 0 ? (
-          ucapanList.map((item: LocalMessageItem, index: number) => (
-            <div key={index} className="bg-orange-200 p-4 my-2 rounded-md">
-              <div className="flex items-center space-x-2 font-semibold">
-              <div className="bg-orange-300 text-sm font-bold w-7 h-7 flex items-center justify-center rounded-full">
-                {item.name.charAt(0).toUpperCase()}
+
+      <div className="pb-25">
+        <div className="border-y mt-8 overflow-y-scroll h-52 max-w-md mx-auto px-4" data-aos-once="true" data-aos="fade-up">
+          {Array.isArray(ucapanList) && ucapanList.length > 0 ? (
+            ucapanList.map((item: LocalMessageItem, index: number) => (
+              <div key={index} className="bg-orange-200 shadow-sm p-4 my-2 rounded-md">
+                <div className="flex items-center space-x-2 font-semibold">
+                  <div className="bg-orange-300  text-sm font-bold w-7 h-7 flex items-center justify-center rounded-full">
+                    {item.name.charAt(0).toUpperCase()}
+                  </div>
+                  <span>{item.name}</span>
+                  <span className="text-xs text-gray-600">
+                    {item.present ? "(Hadir)" : "(Tidak Hadir)"}
+                  </span>
+                </div>
+                <p className="mt-2">{item.message}</p>
+                <div className="text-right text-xs text-gray-500">
+                  {new Date(item.createdAt || "").toLocaleString("id-ID")}
+                </div>
               </div>
-              <span>{item.name}</span>
-              <span className="text-xs text-gray-600">
-                {item.present ? "(Hadir)" : "(Tidak Hadir)"}
-              </span>
-              </div>
-              <p className="mt-2">{item.message}</p>
-              <div className="text-right text-xs text-gray-500">
-              {new Date(item.createdAt || "").toLocaleString("id-ID")}
-              </div>
+            ))
+          ) : (
+            <div className="text-center text-gray-500 my-4 pb-2" data-aos-once="true" data-aos="fade-down">
+              Jadilah yang pertama mengucapkan.
             </div>
-          ))
-        ) : (
-          <div className="text-center text-gray-500 my-4 pb-2" data-aos-once="true" data-aos="fade-down">
-            Jadilah yang pertama mengucapkan.
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </>
   );

@@ -27,24 +27,28 @@ const Countdown = () => {
   }, []);
 
   return (
-    <div className="flex justify-around pt-4 pb-25 text-[#BE1D1D] font-bold" data-aos-once="true" data-aos="fade-up">
-      <div>
-        <p className="text-2xl">{String(timeLeft.days).padStart(2, "0")}</p>
-        <p className="text-xs">Days</p>
+    <>
+      <div className="pb-25">
+        <div className="flex justify-around border-y border-black mt-2 p-2 text-[#BE1D1D] font-bold" data-aos-once="true" data-aos="fade-up">
+          <div>
+            <p className="text-2xl">{String(timeLeft.days).padStart(2, "0")}</p>
+            <p className="text-xs">Days</p>
+          </div>
+          <div>
+            <p className="text-2xl">{String(timeLeft.hours).padStart(2, "0")}</p>
+            <p className="text-xs">Hours</p>
+          </div>
+          <div>
+            <p className="text-2xl">{String(timeLeft.minutes).padStart(2, "0")}</p>
+            <p className="text-xs">Minutes</p>
+          </div>
+          <div>
+            <p className="text-2xl">{String(timeLeft.seconds).padStart(2, "0")}</p>
+            <p className="text-xs">Seconds</p>
+          </div>
+        </div>
       </div>
-      <div>
-        <p className="text-2xl">{String(timeLeft.hours).padStart(2, "0")}</p>
-        <p className="text-xs">Hours</p>
-      </div>
-      <div>
-        <p className="text-2xl">{String(timeLeft.minutes).padStart(2, "0")}</p>
-        <p className="text-xs">Minutes</p>
-      </div>
-      <div>
-        <p className="text-2xl">{String(timeLeft.seconds).padStart(2, "0")}</p>
-        <p className="text-xs">Seconds</p>
-      </div>
-    </div>
+    </>
   );
 };
 

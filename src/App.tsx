@@ -1,10 +1,10 @@
-import { BrowserRouter as Router, Routes, Route, useLocation, useParams } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import Layouts from "./Layouts/Layouts";
 
 function App() {
   return (
     <Router>
-      <Layouts />
+        <Layouts />
     </Router>
   );
 }

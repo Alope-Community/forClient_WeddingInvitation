@@ -9,7 +9,7 @@ import "aos/dist/aos.css";
 
 const Layouts = () => {
     const location = useLocation();
-
+    
     useEffect(() => {
         AOS.init();
         AOS.refresh();

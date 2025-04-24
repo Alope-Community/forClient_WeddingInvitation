@@ -12,8 +12,8 @@ const Place = () => {
         mainTitle="WEEDING PARTY DETAILS"
         subtitle="FROM THE VOWS TO THE CELEBRATION — HERE’S WHERE IT ALL HAPPENS"
       />
-      <div className="font-serif px-5 text-center">
-        <p className="font-semibold mt-4 mb-2" data-aos-once="true" data-aos="fade-up">Kuningan Islamic Center</p>
+      <div className="font-serif px-5 text-center min-h-screen">
+        <p className="font-semibold mt-4 mb-2 uppercase" data-aos-once="true" data-aos="fade-up">Kuningan Islamic Center</p>
 
         <img src='/img/maps.png' className="w-[90%] rounded-2xl max-w-md mx-auto h-52 object-cover mb-4 flex justify-center items-center" data-aos-once="true" data-aos="fade-zoom-in">
          
@@ -28,7 +28,7 @@ const Place = () => {
 
         <h2 className="text-xl font-bold border-t border-b py-2 tracking-wider" data-aos-once="true" data-aos="fade-up">SAVE THE DATE</h2>
 
-        <div className="flex items-center justify-center">
+        <div className="flex items-center mt-2 justify-center">
           <div className='text-left border-r pr-3' data-aos-once="true" data-aos="fade-left">
             <p className="text-[12px] font-semibold" >WEDDING CEREMONY</p>
             <p className='text-sm'>Sunday, May 25th, 2025</p>
