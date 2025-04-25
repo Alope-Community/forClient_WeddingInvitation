@@ -27,21 +27,7 @@ const routes = [
     label: "Couple",
   },
   {
-<<<<<<<<< Temporary merge branch 1
-=========
-    path: "/closing",
-    element: <Closing />,
-    icon: <GiLovers />,
-    label: "Closing",
-  },
-  {
-    path: "/galery",
-    element: <Galery />,
-    icon: <GiLovers />,
-    label: "Galery",
-  },
-  {
->>>>>>>>> Temporary merge branch 2
+    id: 2,
     path: "/location",
     element: <Place />,
     icon: <FaMapLocation size={20} />,
