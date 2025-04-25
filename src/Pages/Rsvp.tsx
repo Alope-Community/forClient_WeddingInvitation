@@ -158,7 +158,7 @@ const Rsvp = () => {
 
 
 
-      <div className="pb-25">
+      <div className="pb-25 px-5">
         <div className={`border-y mt-8 max-w-md mx-auto px-4 scroll- ${ucapanList.length > 0 ? "h-52 overflow-y-scroll no-scrollbar" : "h-auto"}`} data-aos-once="true" data-aos="fade-up">
           {Array.isArray(ucapanList) && ucapanList.length > 0 ? (
             ucapanList.map((item: LocalMessageItem, index: number) => (
