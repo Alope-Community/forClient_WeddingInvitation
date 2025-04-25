@@ -10,7 +10,6 @@ import Galery from "../Pages/Galery.tsx";
 import { FaMailBulk } from "react-icons/fa";
 import { GiLovers } from "react-icons/gi";
 
-
 const routes = [
   {
     id: 1,
@@ -27,7 +26,7 @@ const routes = [
     label: "Couple",
   },
   {
-    id: 2,
+    id: 3,
     path: "/location",
     element: <Place />,
     icon: <FaMapLocation size={20} />,
