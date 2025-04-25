@@ -1,6 +1,5 @@
 import Header from '../Components/Header'
 import Countdown from '../Components/Coutdown'
-import Location from '../Components/Location'
 
 const Place = () => {
   const handleMapsKlik = () => {

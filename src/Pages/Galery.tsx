@@ -1,6 +1,5 @@
 import React from "react";
 import Header from "../Components/Header";
-import MenuBar from "../Components/MenuBar";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
@@ -59,7 +58,7 @@ const Galery = () => {
         open={open}
         close={() => setOpen(false)}
         index={Index}
-        slides={images.map((image, index) => ({ src: image }))}
+        slides={images.map((image) => ({ src: image }))}
       />
     </>
   );

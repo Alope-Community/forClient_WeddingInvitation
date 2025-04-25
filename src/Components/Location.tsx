@@ -5,7 +5,7 @@ interface LocationProps {
     height: string
 }
 
-const Location: React.FC<LocationProps> = ({width, height}) => {
+const Location: React.FC<LocationProps> = ({height}) => {
     return (
         <>
             <iframe

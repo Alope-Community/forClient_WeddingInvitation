@@ -7,7 +7,7 @@ interface LocalMessageItem {
   name: string;
   message: string;
   present: boolean;
-  createdAt: string;
+  createdAt: string
 }
 
 const Rsvp = () => {
@@ -26,9 +26,7 @@ const Rsvp = () => {
     createdAt: item.createdAt || new Date().toISOString(),
   }));
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setForm((prev) => ({
       ...prev,
@@ -55,11 +53,13 @@ const Rsvp = () => {
         message: "",
       });
 
-      toast.success("Pesan Berhasil Dikirim", {});
+      toast.success("Pesan Berhasil Dikirim", {
+      });
 
       refetch();
     } else {
-      toast.error("Gagal Mengirim Pesan", {});
+      toast.error("Gagal Mengirim Pesan", {
+      })
     }
   };
 
@@ -101,18 +101,29 @@ const Rsvp = () => {
           required
         />
 
+        <textarea
+          name="message"
+          placeholder="Ucapan"
+          value={form.message}
+          onChange={handleChange}
+          className="w-full rounded-md p-2 h-24 bg-[#DBAB82]"
+          data-aos-once="true"
+          data-aos="fade-up"
+          required
+        />
+
         <div
           className="text-left space-y-1 text-sm"
           data-aos-once="true"
           data-aos="fade-up"
         >
-          <p>Konfirmasi:</p>
+          <p>Konfirmasi Kehadiran:</p>
           <label className="flex items-center space-x-2">
             <input
               type="radio"
               name="present"
-              value="hadir"
-              checked={form.present === true}
+              value="true"
+              checked={true}
               onChange={handleChange}
               className="accent-[rgb(121,85,72)]"
             />
@@ -126,26 +137,14 @@ const Rsvp = () => {
             <input
               type="radio"
               name="present"
-              value="tidak"
-              checked={form.present === true}
+              value="false"
+              checked={true}
               onChange={handleChange}
               className="accent-[rgb(121,85,72)]"
             />
             <span>Maaf, Saya tidak bisa datang</span>
           </label>
         </div>
-
-        <textarea
-          name="message"
-          placeholder="Ucapan"
-          value={form.message}
-          onChange={handleChange}
-          className="w-full rounded-md p-2 h-24 bg-[#DBAB82]"
-          data-aos-once="true"
-          data-aos="fade-up"
-          required
-        />
-
         <button
           type="submit"
           className="w-full bg-[#8A5529] text-white py-2 rounded-full"
@@ -157,38 +156,34 @@ const Rsvp = () => {
         </button>
       </form>
 
-      <div
-        className="border-t mt-8 pb-20 max-w-md mx-auto px-4"
-        data-aos-once="true"
-        data-aos="fade-up"
-      >
-        {Array.isArray(ucapanList) && ucapanList.length > 0 ? (
-          ucapanList.map((item: LocalMessageItem, index: number) => (
-            <div key={index} className="bg-orange-200 p-4 my-2 rounded-md">
-              <div className="flex items-center space-x-2 font-semibold">
-                <div className="bg-orange-300 text-sm font-bold w-7 h-7 flex items-center justify-center rounded-full">
-                  {item.name.charAt(0).toUpperCase()}
+
+
+      <div className="pb-25">
+        <div className={`border-y mt-8 max-w-md mx-auto px-4 scroll- ${ucapanList.length > 0 ? "h-52 overflow-y-scroll no-scrollbar" : "h-auto"}`} data-aos-once="true" data-aos="fade-up">
+          {Array.isArray(ucapanList) && ucapanList.length > 0 ? (
+            ucapanList.map((item: LocalMessageItem, index: number) => (
+              <div key={index} className="bg-orange-200 shadow-sm p-4 my-2 rounded-md">
+                <div className="flex items-center space-x-2 font-semibold">
+                  <div className="bg-orange-300  text-sm font-bold w-7 h-7 flex items-center justify-center rounded-full">
+                    {item.name.charAt(0).toUpperCase()}
+                  </div>
+                  <span>{item.name}</span>
+                  <span className="text-xs text-gray-600">
+                    {item.present ? "(Hadir)" : "(Tidak Hadir)"}
+                  </span>
                 </div>
-                <span>{item.name}</span>
-                <span className="text-xs text-gray-600">
-                  {item.present ? "(Hadir)" : "(Tidak Hadir)"}
-                </span>
+                <p className="mt-2">{item.message}</p>
+                <div className="text-right text-xs text-gray-500">
+                  {new Date(item.createdAt || "").toLocaleString("id-ID")}
+                </div>
               </div>
-              <p className="mt-2">{item.message}</p>
-              <div className="text-right text-xs text-gray-500">
-                {new Date(item.createdAt || "").toLocaleString("id-ID")}
-              </div>
+            ))
+          ) : (
+            <div className="text-center text-gray-500 my-4 pb-2" data-aos-once="true" data-aos="fade-down">
+              Jadilah yang pertama mengucapkan.
             </div>
-          ))
-        ) : (
-          <div
-            className="text-center text-gray-500 my-4 pb-2"
-            data-aos-once="true"
-            data-aos="fade-down"
-          >
-            Jadilah yang pertama mengucapkan.
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </>
   );

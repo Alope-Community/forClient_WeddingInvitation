@@ -64,7 +64,7 @@ const useFetchMessages = () => {
     try {
       axios.get(api + "messages").then((res) => {
         setMessages(res.data.data);
-      }).catch((error) =>{
+      }).catch(() =>{
         setMessages([]); 
       });
       
