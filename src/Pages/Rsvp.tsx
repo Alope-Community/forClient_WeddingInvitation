@@ -160,7 +160,7 @@ const Rsvp = () => {
 
 
       <div className="pb-25">
-        <div className="border-y mt-8 overflow-y-scroll h-52 max-w-md mx-auto px-4" data-aos-once="true" data-aos="fade-up">
+        <div className="border-y mt-8 overflow-y-scroll h-auto max-w-md mx-auto px-4" data-aos-once="true" data-aos="fade-up">
           {Array.isArray(ucapanList) && ucapanList.length > 0 ? (
             ucapanList.map((item: LocalMessageItem, index: number) => (
               <div key={index} className="bg-orange-200 shadow-sm p-4 my-2 rounded-md">
