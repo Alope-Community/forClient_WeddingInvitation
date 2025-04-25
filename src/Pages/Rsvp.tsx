@@ -184,7 +184,7 @@ const Rsvp = () => {
         </>
       ) : (
         <div className="pb-25">
-          <div className="border-y mt-8 overflow-y-scroll h-auto max-w-md mx-auto px-4" data-aos-once="true" data-aos="fade-up">
+          <div className="border-y mt-8 h-auto max-w-md mx-auto px-4" data-aos-once="true" data-aos="fade-up">
             <div className="text-center text-gray-500 my-4 pb-2" data-aos-once="true" data-aos="fade-down">
               Jadilah yang pertama mengucapkan.
             </div>

@@ -41,12 +41,6 @@ const routes = [
     label: "RSVP",
   },
   {
-    path: "/galery",
-    element: <Galery />,
-    icon: <FaMessage />,
-    label: "Galery",
-  },
-  {
     id: 5,
     path: "/gift",
     element: <Gift />,
