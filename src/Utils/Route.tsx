@@ -10,7 +10,6 @@ import Galery from "../Pages/Galery.tsx";
 import { FaMailBulk } from "react-icons/fa";
 import { GiLovers } from "react-icons/gi";
 
-
 const routes = [
   {
     id: 1,
@@ -27,21 +26,7 @@ const routes = [
     label: "Couple",
   },
   {
-<<<<<<<<< Temporary merge branch 1
-=========
-    path: "/closing",
-    element: <Closing />,
-    icon: <GiLovers />,
-    label: "Closing",
-  },
-  {
-    path: "/galery",
-    element: <Galery />,
-    icon: <GiLovers />,
-    label: "Galery",
-  },
-  {
->>>>>>>>> Temporary merge branch 2
+    id: 3,
     path: "/location",
     element: <Place />,
     icon: <FaMapLocation size={20} />,
@@ -53,12 +38,6 @@ const routes = [
     element: <Rsvp />,
     icon: <FaMessage size={20} />,
     label: "RSVP",
-  },
-  {
-    path: "/galery",
-    element: <Galery />,
-    icon: <FaMessage />,
-    label: "Galery",
   },
   {
     id: 5,

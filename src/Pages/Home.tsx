@@ -5,23 +5,30 @@ import { setParams } from "../Hooks/params";
 
 const Home = () => {
   const navigate = useNavigate();
-  
+
   const { name } = useParams<{ name?: string }>();
-  setParams(name || '');
-  
+  // setParams(name || '');
+
   const handleOpenInvitation = () => {
     navigate(`/couple/${name}`);
   };
   const formatedName = name
-    ? name.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
-    : '';
+    ? name
+        .split("-")
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" ")
+    : "";
 
   return (
     <>
       <Header mainTitle="THE LOVE ISSUE" subtitle="" />
 
       <div className="min-h-screen text-neutral-900 font-serif flex flex-col items-center text-center px-4 pt-3 pb-25">
-        <p className="text-[14px] italic mb-6 max-w-sm" data-aos="fade-up" data-aos-once="true">
+        <p
+          className="text-[14px] italic mb-6 max-w-sm"
+          data-aos="fade-up"
+          data-aos-once="true"
+        >
           ONE VOW, TWO HEARTS, AND THE BEGINNING OF A FOREVER STORY
         </p>
 

@@ -1,11 +1,13 @@
 import React from "react";
 import Header from "../Components/Header";
 import MenuBar from "../Components/MenuBar";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 
 const Galery = () => {
   const images = [
     "/img/Prewed.png",
-    "/img/Prewed.png",
+    "/img/maps.png",
     "/img/Prewed.png",
     "/img/Prewed.png",
     "/img/Prewed.png",
@@ -28,7 +30,8 @@ const Galery = () => {
     "col-span-2 row-span-1",
     "col-span-2 row-span-1",
   ];
-
+  const [open, setOpen] = React.useState(false);
+  const [Index, setIndex] = React.useState(0);
   return (
     <>
       <Header mainTitle="A JOURNEY OF US" subtitle="May 25, 2025" />
@@ -37,6 +40,9 @@ const Galery = () => {
         <div className="grid grid-cols-3 auto-rows-[120px] gap-2 max-w-4xl mx-auto">
           {images.map((src, index) => (
             <img
+              onClick={() => {
+                setOpen(true), setIndex(index);
+              }}
               key={index}
               src={src}
               data-aos-once="true"
@@ -49,6 +55,12 @@ const Galery = () => {
           ))}
         </div>
       </div>
+      <Lightbox
+        open={open}
+        close={() => setOpen(false)}
+        index={Index}
+        slides={images.map((image, index) => ({ src: image }))}
+      />
     </>
   );
 };
