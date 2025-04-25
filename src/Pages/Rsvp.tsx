@@ -158,34 +158,40 @@ const Rsvp = () => {
       </form>
 
 
-
-      <div className="pb-25">
-        <div className="border-y mt-8 overflow-y-scroll h-auto max-w-md mx-auto px-4" data-aos-once="true" data-aos="fade-up">
-          {Array.isArray(ucapanList) && ucapanList.length > 0 ? (
-            ucapanList.map((item: LocalMessageItem, index: number) => (
-              <div key={index} className="bg-orange-200 shadow-sm p-4 my-2 rounded-md">
-                <div className="flex items-center space-x-2 font-semibold">
-                  <div className="bg-orange-300  text-sm font-bold w-7 h-7 flex items-center justify-center rounded-full">
-                    {item.name.charAt(0).toUpperCase()}
+      {Array.isArray(ucapanList) && ucapanList.length > 0 ? (
+        <>
+          <div className="pb-25">
+            <div className="border-y mt-8 overflow-y-scroll h-52 max-w-md mx-auto px-4" data-aos-once="true" data-aos="fade-up">
+              {ucapanList.map((item: LocalMessageItem, index: number) => (
+                <div key={index} className="bg-orange-200 shadow-sm p-4 my-2 rounded-md">
+                  <div className="flex items-center space-x-2 font-semibold">
+                    <div className="bg-orange-300  text-sm font-bold w-7 h-7 flex items-center justify-center rounded-full">
+                      {item.name.charAt(0).toUpperCase()}
+                    </div>
+                    <span>{item.name}</span>
+                    <span className="text-xs text-gray-600">
+                      {item.present ? "(Hadir)" : "(Tidak Hadir)"}
+                    </span>
                   </div>
-                  <span>{item.name}</span>
-                  <span className="text-xs text-gray-600">
-                    {item.present ? "(Hadir)" : "(Tidak Hadir)"}
-                  </span>
+                  <p className="mt-2">{item.message}</p>
+                  <div className="text-right text-xs text-gray-500">
+                    {new Date(item.createdAt || "").toLocaleString("id-ID")}
+                  </div>
                 </div>
-                <p className="mt-2">{item.message}</p>
-                <div className="text-right text-xs text-gray-500">
-                  {new Date(item.createdAt || "").toLocaleString("id-ID")}
-                </div>
-              </div>
-            ))
-          ) : (
+              ))}
+            </div>
+          </div>
+        </>
+      ) : (
+        <div className="pb-25">
+          <div className="border-y mt-8 overflow-y-scroll h-auto max-w-md mx-auto px-4" data-aos-once="true" data-aos="fade-up">
             <div className="text-center text-gray-500 my-4 pb-2" data-aos-once="true" data-aos="fade-down">
               Jadilah yang pertama mengucapkan.
             </div>
-          )}
+          </div>
         </div>
-      </div>
+      )}
+
     </>
   );
 };
