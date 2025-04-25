@@ -1,5 +1,6 @@
 import Header from '../Components/Header'
 import Countdown from '../Components/Coutdown'
+import Location from '../Components/Location'
 
 const Place = () => {
   const handleMapsKlik = () => {
@@ -14,9 +15,9 @@ const Place = () => {
       <div className="font-serif px-5 text-center min-h-screen">
         <p className="font-semibold mt-4 mb-2 uppercase" data-aos-once="true" data-aos="fade-up">Kuningan Islamic Center</p>
 
-        <img src='/img/maps.png' className="w-[90%] rounded-2xl max-w-md mx-auto h-52 object-cover mb-4 flex justify-center items-center" data-aos-once="true" data-aos="fade-zoom-in">
-         
-        </img>
+        <div className="w-[90%] rounded-2xl max-w-md mx-auto h-52 object-cover mb-4 flex justify-center items-center" data-aos-once="true" data-aos="fade-zoom-in">
+          <Location width='700' height='220'/>
+        </div>
 
         <button
           onClick={handleMapsKlik}
