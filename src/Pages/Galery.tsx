@@ -47,7 +47,7 @@ const Galery = () => {
               data-aos-once="true"
               data-aos="fade-up"
               alt={`Foto ${index + 1}`}
-              className={`w-full h-full object-cover ${
+              className={`w-full h-full object-cover cursor-pointer ${
                 layoutClasses[index % layoutClasses.length]
               }`}
             />
