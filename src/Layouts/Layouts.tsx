@@ -8,12 +8,12 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const Layouts = () => {
-    const location = useLocation();
+  const location = useLocation();
 
-    useEffect(() => {
-        AOS.init();
-        AOS.refresh();
-    }, []);
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
 
     const isInvitationPage = location.pathname === '/'
 
@@ -36,5 +36,4 @@ const Layouts = () => {
     )
 }
 
-export default Layouts
-
+export default Layouts;
