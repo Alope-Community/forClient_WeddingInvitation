@@ -1,9 +1,12 @@
 // import React from "react";
 import routes from "../Utils/Route";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import FloatButton from "./ActionButton";
 
 const MenuBar = () => {
+  const name = useParams();
+
+  console.log(name);
   return (
     <>
       <FloatButton />

@@ -5,29 +5,29 @@ import "yet-another-react-lightbox/styles.css";
 
 const Galery = () => {
   const images = [
-    "/img/Prewed.png",
-    "/img/maps.png",
-    "/img/Prewed.png",
-    "/img/Prewed.png",
-    "/img/Prewed.png",
-    "/img/Prewed.png",
-    "/img/Prewed.png",
-    "/img/Prewed.png",
-    "/img/Prewed.png",
-    "/img/Prewed.png",
+    "/assets/prewed1.jpg",
+    "/assets/prewed2.jpg",
+    "/assets/prewed3.jpg",
+    "/assets/prewed4.jpg",
+    "/assets/prewed5.jpg",
+    "/assets/prewed19.jpg",
+    "/assets/prewed11.jpg",
+    "/assets/prewed12.jpg",
+    "/assets/prewed14.jpg",
+    "/assets/prewed11.jpg",
   ];
 
   const layoutClasses = [
-    "col-span-2 row-span-2",
-    "col-span-1 row-span-1",
-    "col-span-1 row-span-2",
-    "col-span-2 row-span-1",
-    "col-span-1 row-span-1",
-    "col-span-2 row-span-2",
-    "col-span-1 row-span-1",
-    "col-span-1 row-span-2",
-    "col-span-2 row-span-1",
-    "col-span-2 row-span-1",
+    "col-span-2 row-span-2 object-cover",
+    "col-span-1 row-span-1 object-cover",
+    "col-span-1 row-span-2 object-cover",
+    "col-span-2 row-span-1 object-cover",
+    "col-span-1 row-span-1 object-cover",
+    "col-span-2 row-span-2 object-cover",
+    "col-span-1 row-span-1 object-cover",
+    "col-span-1 row-span-2 object-cover",
+    "col-span-2 row-span-1 object-cover",
+    "col-span-2 row-span-1 object-cover",
   ];
   const [open, setOpen] = React.useState(false);
   const [Index, setIndex] = React.useState(0);
@@ -46,8 +46,8 @@ const Galery = () => {
               src={src}
               data-aos-once="true"
               data-aos="fade-up"
-              alt={`Foto ${index + 1}`}
-              className={`w-full h-full object-cover ${
+              alt={`Weeding ${index + 1}`}
+              className={`w-full h-full ${
                 layoutClasses[index % layoutClasses.length]
               }`}
             />

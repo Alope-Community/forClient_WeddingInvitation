@@ -18,7 +18,7 @@ const Place = () => {
         <div className="w-[90%] rounded-2xl max-w-md mx-auto h-52 object-cover mb-4 flex justify-center items-center" data-aos-once="true" data-aos="fade-zoom-in">
           <Location width='700' height='220'/>
         </div>
-
+        
         <button
           onClick={handleMapsKlik}
           className="bg-[#8A5529] text-white px-4 py-2 rounded-md text-sm mb-6 cursor-pointer"

@@ -14,7 +14,7 @@ const Rsvp = () => {
   const [form, setForm] = useState({
     name: "",
     phone: "",
-    present: true,
+    present: false,
     message: "",
   });
 
@@ -41,7 +41,7 @@ const Rsvp = () => {
       name: form.name,
       phone: form.phone,
       message: form.message,
-      present: form.present === true,
+      present: form.present,
     };
 
     const res = await sendMessage(payload);
@@ -124,7 +124,7 @@ const Rsvp = () => {
               name="present"
               value="true"
               checked={true}
-              onChange={handleChange}
+              onChange={() => setForm((prev) => ({ ...prev, present: true }))}
               className="accent-[rgb(121,85,72)]"
             />
             <span>Iya, Saya akan datang</span>
@@ -139,7 +139,7 @@ const Rsvp = () => {
               name="present"
               value="false"
               checked={true}
-              onChange={handleChange}
+              onChange={() => setForm((prev) => ({ ...prev, present: false }))}
               className="accent-[rgb(121,85,72)]"
             />
             <span>Maaf, Saya tidak bisa datang</span>

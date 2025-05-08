@@ -11,7 +11,7 @@ const Couple = () => {
       <div className="w-full  flex justify-center my-3">
         <img
         data-aos-once="true" data-aos="fade-up-zoon"
-          src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="/assets/prewed4.jpg"
           alt="Gugun and Mila"
           className="w-full h-[250px] max-w-xs object-cover mb-3 border border-black"
         />
