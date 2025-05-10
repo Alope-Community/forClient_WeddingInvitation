@@ -8,6 +8,11 @@ const FloatButton: React.FC = () => {
   const [isFullscreen, setIsFullscreen] = useState(false);
 
   useEffect(() => {
+    // Set volume to 50%
+    if (audioRef.current) {
+      audioRef.current.volume = 0.5;
+    }
+
     // Auto play audio
     const playAudio = () => {
       if (audioRef.current) {
@@ -53,7 +58,7 @@ const FloatButton: React.FC = () => {
   };
 
   const toggleWa = () => {
-    window.location.href = "https://wa.me/62";
+    window.location.href = "https://wa.me/62", "_blank";
   };
 
   const toggleFullscreen = () => {
