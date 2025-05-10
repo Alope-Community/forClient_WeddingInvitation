@@ -1,21 +1,16 @@
 // import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import Header from "../Components/Header";
 
 const Home = () => {
   const navigate = useNavigate();
 
-  const { name } = useParams<{ name?: string }>();
-  
+  const [searchParams] = useSearchParams();
+  const f = searchParams.get("f");
+
   const handleOpenInvitation = () => {
-    navigate(`/couple/${name}`);
+    navigate(`/couple`);
   };
-  const formatedName = name
-    ? name
-        .split("-")
-        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(" ")
-    : "";
 
   return (
     <>
@@ -44,7 +39,7 @@ const Home = () => {
           </h2>
           <p className="text-sm mb-2">Kepada Yth.</p>
           <p className="text-sm font-medium mb-1">Bapak/Ibu/Saudara/i</p>
-          <p className="text-sm italic mb-6">{formatedName}</p>
+          <p className="text-sm italic mb-6">{f}</p>
 
           <button
             onClick={handleOpenInvitation}
